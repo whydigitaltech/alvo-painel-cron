@@ -1,10 +1,12 @@
-0 0 * * * php ~/public/index.php imports contracts importapi  >> myjob.log 2>&1
-0 1 * * * php ~/public/index.php imports contracts importapi  >> myjob2.log 2>&1
-0 3 * * * php ~/public/index.php imports contracts importapi >> myjob3.log 2>&1
-0 7 * * * php ~/public/index.php imports contracts importapi >> myjob4.log 2>&1
-0 8 * * * php ~/public/index.php imports contracts correctionsData
-0 * * * * php spark schemas -draft database,model -archive cache
-50 23 * * *  php ~/public/index.php cron schedules expire
-0 0 * * * php ~/public/index.php cron servicesOrders expire
+0 0 * * * https://painelhomolog.alvogrt.com/imports/contracts/importapi >/proc/1/fd/1 2>/proc/1/fd/2
+0 1 * * * https://painelhomolog.alvogrt.com/imports/contracts/importapi >/proc/1/fd/1 2>/proc/1/fd/2
+0 2 * * * https://painelhomolog.alvogrt.com/imports/contracts/importapi >/proc/1/fd/1 2>/proc/1/fd/2
+0 3 * * * https://painelhomolog.alvogrt.com/imports/contracts/importapi >/proc/1/fd/1 2>/proc/1/fd/2
+0 7 * * * https://painelhomolog.alvogrt.com/imports/contracts/importapi >/proc/1/fd/1 2>/proc/1/fd/2
+0 8 * * * https://painelhomolog.alvogrt.com/imports/contracts/correctionsData >/proc/1/fd/1 2>/proc/1/fd/2
+
+50 23 * * * https://painelhomolog.alvogrt.com/cron/schedules/expire >/proc/1/fd/1 2>/proc/1/fd/2
+0 0 * * * https://painelhomolog.alvogrt.com/cron/servicesOrders/expire >/proc/1/fd/1 2>/proc/1/fd/2
+0 * * * * https://painelhomolog.alvogrt.com/imports/contracts/importapi/partial >/proc/1/fd/1 2>/proc/1/fd/2
 
 # An empty line is required at the end of this file for a valid cron file.
